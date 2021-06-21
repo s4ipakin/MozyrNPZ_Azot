@@ -1,0 +1,125 @@
+FUNCTION_BLOCK fbImpulsValveSCL
+VAR_INPUT
+    xCmdAutoStop:BOOL;
+                            
+    xAlm:    BOOL;
+    xManual: BOOL;
+    xSnsOpn: BOOL;
+    xSnsCls: BOOL;
+    
+    tfOpn: TIMER;
+    tfCls: TIMER;
+    tnOpnAlm: TIMER;
+    tnClsAlm: TIMER;
+    tPulseWidth: S5TIME;
+    tAlmCheckTime: S5TIME;
+
+
+END_VAR
+VAR_IN_OUT
+    xCmdAutoOpn:BOOL;
+    xCmdAutoCls:BOOL;
+    xCmdManualOpn: BOOL;
+    xCmdManualCls: BOOL;
+    xCmdManualStop: BOOL;
+    
+    xResetAlm: BOOL;
+END_VAR
+VAR_OUTPUT
+    xDO_Opn:BOOL; 
+    xDO_Cls:BOOL;
+    xDO_Stop:BOOL;
+    bAlm: BYTE;                     
+END_VAR
+VAR
+        
+    xManualOld: BOOL;
+    currTime: S5TIME;
+    currTime1: S5TIME;
+    currTime2: S5TIME;
+    currTime13: S5TIME;
+    xAlmOpnTON_Q: BOOL;
+    xAlmOpnTON_Q_Old: BOOL;
+    xAlmClsTON_Q: BOOL;
+    xAlmClsTON_Q_Old: BOOL;
+
+
+END_VAR
+
+BEGIN
+
+    IF xManualOld <> xManual THEN
+        xManualOld:= xManual;
+        IF xManual THEN
+            xCmdManualOpn:=xCmdAutoOpn;
+            xCmdManualCls:= xCmdAutoCls;
+            xCmdManualStop:= xCmdAutoStop;
+        END_IF;
+    END_IF;
+    
+    IF NOT xManual THEN
+        currTime:=S_Pulse( T_NO:= tfOpn,
+                            s:= xCmdAutoOpn AND (NOT xCmdAutoStop) AND (NOT xAlm),
+                            tv:= tPulseWidth,
+                            q:= xDO_Opn   
+                            );
+        
+        currTime1:=S_Pulse( T_NO:= tfCls,
+                            s:= xCmdAutoCls AND (NOT xCmdAutoStop) AND (NOT xAlm),
+                            tv:= tPulseWidth,
+                            q:= xDO_Cls   
+                            );
+                            
+        xDO_Stop:= xCmdAutoStop;
+        
+    ELSE
+        
+        currTime:=S_PULSE( T_NO:= tfOpn,
+                            s:= xCmdManualOpn AND (NOT xCmdManualStop) AND (NOT xAlm),
+                            tv:= tPulseWidth,
+                            q:= xDO_Opn   
+                            );
+        
+        currTime1:=S_PULSE( T_NO:= tfCls,
+                            s:= xCmdManualCls AND (NOT xCmdManualStop) AND (NOT xAlm),
+                            tv:= tPulseWidth,
+                            q:= xDO_Cls   
+                            );
+                            
+        xDO_Stop:= xCmdManualStop;
+
+    END_IF;
+
+    currTime2:=S_ODT( T_NO:= tnOpnAlm,
+                            s:= (xCmdManualOpn OR xCmdAutoOpn) AND (NOT xSnsOpn),
+                            tv:= tAlmCheckTime,
+                            q:= xAlmOpnTON_Q   
+                            );
+                            
+    currTime2:=S_ODT( T_NO:= tnClsAlm,
+                            s:= (xCmdManualCls OR xCmdAutoCls) AND (NOT xSnsCls),
+                            tv:= tAlmCheckTime,
+                            q:= xAlmClsTON_Q   
+                            );
+                            
+    IF xAlmOpnTON_Q <> xAlmOpnTON_Q_Old THEN
+        xAlmOpnTON_Q_Old:= xAlmOpnTON_Q;
+            IF xAlmOpnTON_Q THEN
+                bAlm:= bAlm OR BYTE#16#1;
+            END_IF;
+    END_IF;
+    IF xAlmClsTON_Q <> xAlmClsTON_Q_Old THEN
+        xAlmClsTON_Q_Old:= xAlmClsTON_Q;
+            IF xAlmClsTON_Q THEN
+                bAlm:= bAlm OR BYTE#16#2;
+            END_IF;
+    END_IF;
+
+    IF xResetAlm THEN
+        bAlm:= BYTE#16#0;
+    END_IF;
+    
+    
+    
+    
+END_FUNCTION_BLOCK

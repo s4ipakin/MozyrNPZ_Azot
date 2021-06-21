@@ -1,0 +1,137 @@
+FUNCTION fnWordPack : VOID
+VAR_INPUT
+    bHigh: BYTE;                (* input value*)
+    bLow:BYTE;            (* minimum input value *)
+END_VAR
+VAR_OUTPUT
+    OUT: WORD;            (* output value *)
+END_VAR
+VAR
+    iTemp   : INT;
+END_VAR
+
+
+BEGIN
+    iTemp:= (BYTE_TO_INT(bHigh) * 256) + BYTE_TO_INT(bLow);
+    OUT:= INT_TO_WORD(iTemp);
+    //OUT:= BYTE_TO_WORD(bHigh) * W#16#00FF;
+END_FUNCTION
+
+
+FUNCTION fnBytesToReal : VOID
+VAR_INPUT
+    bHigh: BYTE;                (* input value*)
+    bLow:BYTE;            (* minimum input value *)
+END_VAR
+VAR_OUTPUT
+    OUT: REAL;            (* output value *)
+END_VAR
+VAR
+    iTemp   : INT;
+END_VAR
+
+
+BEGIN
+    iTemp:= (BYTE_TO_INT(bHigh) * 256) + BYTE_TO_INT(bLow);
+    OUT:= iTemp;
+    //OUT:= BYTE_TO_WORD(bHigh) * W#16#00FF;
+END_FUNCTION
+
+
+
+FUNCTION fnBytesToRealOneComma : VOID
+VAR_INPUT
+    bHigh: BYTE;                (* input value*)
+    bLow:BYTE;            (* minimum input value *)
+END_VAR
+VAR_OUTPUT
+    OUT: REAL;            (* output value *)
+END_VAR
+VAR
+    iTemp   : INT;
+END_VAR
+
+
+BEGIN
+    iTemp:= (BYTE_TO_INT(bHigh) * 256) + BYTE_TO_INT(bLow);
+    OUT:= iTemp;
+    OUT:= OUT / 10;
+END_FUNCTION
+
+
+
+FUNCTION fnBytesToRealPressure : VOID
+VAR_INPUT
+    bHigh: BYTE;                (* input value*)
+    bLow:BYTE;            (* minimum input value *)
+END_VAR
+VAR_OUTPUT
+    OUT: REAL;            (* output value *)
+END_VAR
+VAR
+    iTemp   : INT;
+END_VAR
+
+
+BEGIN
+    iTemp:= (BYTE_TO_INT(bHigh) * 256) + BYTE_TO_INT(bLow);
+    OUT:= iTemp;
+    OUT:= OUT / 1000;
+END_FUNCTION
+
+
+
+
+
+FUNCTION fnBytesToRealTwoComas : VOID
+VAR_INPUT
+    bHigh: BYTE;                (* input value*)
+    bLow:BYTE;            (* minimum input value *)
+END_VAR
+VAR_OUTPUT
+    OUT: REAL;            (* output value *)
+END_VAR
+VAR
+    iTemp   : INT;
+END_VAR
+
+
+BEGIN
+    
+    iTemp:= (BYTE_TO_INT(bHigh) * 256) + BYTE_TO_INT(bLow);
+    OUT:= iTemp;
+    OUT:= OUT / 100;
+END_FUNCTION
+
+
+
+
+FUNCTION StartStopByte : VOID
+VAR_INPUT
+    xStart: BOOL;                (* input value*)
+    xStop:BOOL;            (* minimum input value *)
+END_VAR
+VAR_OUTPUT
+    OUT: BYTE;            (* output value *)
+END_VAR
+VAR
+    iTemp   : INT;
+END_VAR
+
+
+BEGIN
+        
+    IF xStart AND (NOT xStop) THEN
+        iTemp:= 1;
+    ELSIF xStop AND (NOT xStart) THEN
+        iTemp:= 2;
+    ELSE
+        iTemp:= 0;
+    END_IF;
+    OUT:= INT_TO_BYTE(iTemp);
+    
+END_FUNCTION
+
+
+
+

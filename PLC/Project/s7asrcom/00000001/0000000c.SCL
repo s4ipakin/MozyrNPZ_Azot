@@ -1,0 +1,34 @@
+FUNCTION_BLOCK fbKB
+VAR_INPUT
+    xInterlock:BOOL;                            
+END_VAR
+VAR_IN_OUT
+    xStart: BOOL;
+    xStop: BOOL;
+END_VAR
+VAR_OUTPUT
+    xOutStart:BOOL; 
+    xOutStop:BOOL;
+END_VAR
+VAR
+    currTime: S5TIME;
+END_VAR
+
+BEGIN
+
+    IF xStart AND xInterlock THEN
+       xOutStart:=TRUE;
+       xOutStop:=FALSE;
+    ELSE
+       xOutStart:=FALSE;
+    END_IF;
+    xOutStop:=xStop;
+        
+                                
+        
+    
+    
+    
+END_FUNCTION_BLOCK
+
+
