@@ -4,17 +4,17 @@
 		D:\PROJECTS\Мозырь\MozyrNPZ_Azot_Git\MozyrNPZ_Azot\HMI\Project1\IM\HMI\R\0\D\HMI_MXG2
 	</ProjectLocation>
 	<ProjectIsConsistent>
-		1
+		0
 	</ProjectIsConsistent>
 	<SharedMcxLocation>
 		
 	</SharedMcxLocation>
 	<ProjectLocationUNC>
-		\\NAME-L475M4MLP7\WinCC_Project_HMI_MXG2_3
+		\\NAME-L475M4MLP7\WinCC_Project_HMI_MXG2_4
 	</ProjectLocationUNC>
 	<RDP>
 	<LastModifiedDate>
-		2021-06-23 13:30:32
+		2021-06-24 16:22:53
 	</LastModifiedDate>
 	</RDP>
 </MCX>
