@@ -59,13 +59,13 @@ BEGIN
     
     IF NOT xManual THEN
         currTime:=S_Pulse( T_NO:= tfOpn,
-                            s:= xCmdAutoOpn AND (NOT xCmdAutoStop) AND (NOT xAlm),
+                            s:= xCmdAutoOpn AND (NOT xCmdAutoStop) ,
                             tv:= tPulseWidth,
                             q:= xDO_Opn   
                             );
         
         currTime1:=S_Pulse( T_NO:= tfCls,
-                            s:= xCmdAutoCls AND (NOT xCmdAutoStop) AND (NOT xAlm),
+                            s:= xCmdAutoCls AND (NOT xCmdAutoStop) ,
                             tv:= tPulseWidth,
                             q:= xDO_Cls   
                             );
@@ -75,17 +75,18 @@ BEGIN
     ELSE
         
         currTime:=S_PULSE( T_NO:= tfOpn,
-                            s:= xCmdManualOpn AND (NOT xCmdManualStop) AND (NOT xAlm),
+                            s:= xCmdManualOpn AND (NOT xCmdManualStop) ,
                             tv:= tPulseWidth,
                             q:= xDO_Opn   
                             );
+        xCmdManualOpn:=xDO_Opn;
         
         currTime1:=S_PULSE( T_NO:= tfCls,
-                            s:= xCmdManualCls AND (NOT xCmdManualStop) AND (NOT xAlm),
+                            s:= xCmdManualCls AND (NOT xCmdManualStop) ,
                             tv:= tPulseWidth,
                             q:= xDO_Cls   
                             );
-                            
+        xCmdManualCls:=  xDO_Cls;                  
         xDO_Stop:= xCmdManualStop;
 
     END_IF;
