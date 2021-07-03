@@ -8,6 +8,7 @@ VAR_INPUT
     xSnsCls: BOOL;
     
     tfOpn: TIMER;
+    tfStp: TIMER;
     tfCls: TIMER;
     tnOpnAlm: TIMER;
     tnClsAlm: TIMER;
@@ -38,6 +39,7 @@ VAR
     currTime1: S5TIME;
     currTime2: S5TIME;
     currTime13: S5TIME;
+    currTime14: S5TIME;
     xAlmOpnTON_Q: BOOL;
     xAlmOpnTON_Q_Old: BOOL;
     xAlmClsTON_Q: BOOL;
@@ -86,9 +88,15 @@ BEGIN
                             tv:= tPulseWidth,
                             q:= xDO_Cls   
                             );
-        xCmdManualCls:=  xDO_Cls;                  
-        xDO_Stop:= xCmdManualStop;
-
+        xCmdManualCls:=  xDO_Cls;
+        
+        currTime14:=S_PULSE( T_NO:= tfStp,
+                            s:= xCmdManualStop ,
+                            tv:= tPulseWidth,
+                            q:= xDO_Stop   
+                            );
+        xCmdManualStop:=  xDO_Stop;                  
+        
     END_IF;
 
     currTime2:=S_ODT( T_NO:= tnOpnAlm,
