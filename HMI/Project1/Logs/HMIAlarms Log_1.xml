@@ -1,0 +1,7 @@
+<?xml version="1.0" standalone="no"?>
+<?xml-stylesheet type='text/xsl' href='MassDataHandlerLogFile.xsl'?>
+<LogFile titleName="HMIAlarms Log_1.xml" projectName="D:\PROJECTS\Мозырь\HMIAlarms.xlsx" typeText="Type" messageText="Message" timeText="Time">
+  <LogEntry type="Error" dateTime="2:52:46 PM">
+    <Message>Error found while loading file D:\PROJECTS\Мозырь\HMIAlarms.xlsx, the file may be in use or read-only.</Message>
+  </LogEntry>
+</LogFile>

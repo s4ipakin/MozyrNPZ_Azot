@@ -1,0 +1,19 @@
+<?xml version="1.0" standalone="no"?>
+<?xml-stylesheet type='text/xsl' href='MassDataHandlerLogFile.xsl'?>
+<LogFile titleName="tags Log.xml" projectName="E:\tags.xlsx" typeText="Type" messageText="Message" timeText="Time">
+  <LogEntry type="Warning" dateTime="9:44:27 AM">
+    <Message>The property Comment of HMI tag RDT_RawEvent(3) in worksheet Hmi Tags, row 28, column Comment is read only and is ignored.</Message>
+  </LogEntry>
+  <LogEntry type="Warning" dateTime="9:44:27 AM">
+    <Message>The property R_ID of HMI tag RDT_RawEvent(3) in worksheet Hmi Tags, row 28, column R_ID is read only and is ignored.</Message>
+  </LogEntry>
+  <LogEntry type="Warning" dateTime="9:44:27 AM">
+    <Message>The property Comment of HMI tag RDT_RawDataLog(3) in worksheet Hmi Tags, row 29, column Comment is read only and is ignored.</Message>
+  </LogEntry>
+  <LogEntry type="Warning" dateTime="9:44:27 AM">
+    <Message>The property R_ID of HMI tag RDT_RawDataLog(3) in worksheet Hmi Tags, row 29, column R_ID is read only and is ignored.</Message>
+  </LogEntry>
+  <LogEntry type="Information" dateTime="9:44:27 AM">
+    <Message>Import finished: 256 tag(s) imported.</Message>
+  </LogEntry>
+</LogFile>

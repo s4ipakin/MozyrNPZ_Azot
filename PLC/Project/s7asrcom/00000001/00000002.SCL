@@ -22,11 +22,14 @@ BEGIN
     IN:= WORD_TO_INT(IN_WORD);
     IN_REAL:= INT_TO_REAL(IN);
     Diff := IN_MAX-IN_MIN;
-    ERROR := (*(Diff=0) OR*) ((*IN*)IN_REAL<IN_MIN) OR ((*IN*)IN_REAL>IN_MAX);
+    ERROR := (*(Diff=0) OR ((*IN*)IN_REAL<IN_MIN) OR ((*IN*)IN_REAL>IN_MAX)*) IN_WORD = 16#8000;
 
     IF NOT ERROR THEN
         OUT := ((*IN*)IN_REAL-IN_MIN)/Diff * (OUT_MAX-OUT_MIN) + OUT_MIN;
-    ELSIF (IN_REAL>IN_MAX)AND IN_REAL < 32768.0 THEN
+        IF IN_REAL < IN_MIN THEN
+            OUT := OUT_MIN;
+        END_IF;
+    ELSIF (IN_REAL>IN_MAX)AND IN_REAL < 32767.0 THEN
         OUT :=OUT_MAX;
     ELSE
         OUT :=0.0;   

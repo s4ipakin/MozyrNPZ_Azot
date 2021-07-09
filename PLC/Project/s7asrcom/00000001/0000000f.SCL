@@ -1,0 +1,95 @@
+FUNCTION_BLOCK VentBlock
+VAR_INPUT
+    xDont: BOOL;
+    xSoundAcknow: BOOL;
+    
+    xVentIsOn: BOOL;
+    xVentCmdManualOn: BOOL;
+    
+    xAlm_1    : BOOL;
+    xAlm_2    : BOOL;
+    xAlm_3    : BOOL;
+    xAlm_4    : BOOL;
+    xAlm_5    : BOOL;
+    xAlm_6    : BOOL;
+    xAlm_7    : BOOL;
+    xAlm_8    : BOOL;
+    xAlm_9    : BOOL;
+    xAlm_10    : BOOL;
+    xAlm_11    : BOOL;
+    xAlm_12    : BOOL;
+    xAlm_13    : BOOL;
+    xAlm_14    : BOOL;
+    
+    tnAlm: TIMER;
+    tnNotTurnedOnAlm: TIMER;
+    tAlmTime: S5TIME;
+    tNotTurnedOnAlmTime: S5TIME;
+
+
+END_VAR
+VAR_IN_OUT
+END_VAR
+VAR_OUTPUT
+    xCmdVentOn:BOOL; 
+    xSoundOn: BOOL;   
+    xAlm: BOOL;                     
+END_VAR
+VAR
+        
+    currTime: S5TIME;
+    currTime1: S5TIME;
+    currTime2: S5TIME;
+    currTime13: S5TIME;
+    currTime14: S5TIME;
+    xAlmInTON_Q: BOOL;
+    xAlmNotTurnOnTON: BOOL;
+    xAlmClsTON_Q: BOOL;
+    xAlmClsTON_Q_Old: BOOL;
+    xAllInAlm: BOOL;
+
+
+END_VAR
+
+BEGIN
+    
+     xAllInAlm:= NOT(xAlm_1    OR
+                xAlm_2    OR
+                xAlm_3    OR
+                xAlm_4    OR
+                xAlm_5    OR
+                xAlm_6    OR
+                xAlm_7    OR
+                xAlm_8    OR
+                xAlm_9    OR
+                xAlm_10    OR
+                xAlm_11    OR
+                xAlm_12    OR
+                xAlm_13    OR
+                xAlm_14);
+                
+
+
+     currTime:=S_ODT( T_NO:= tnAlm,
+                            s:= xAllInAlm,
+                            tv:= tAlmTime,
+                            q:= xAlmInTON_Q   
+                            );
+                            
+    xSoundOn:=xAlmInTON_Q AND (NOT xSoundAcknow);
+                            
+    IF NOT xDont THEN
+        xCmdVentOn:= xAlmInTON_Q OR xVentCmdManualOn;
+    ELSE
+        xCmdVentOn:= xVentCmdManualOn;
+    END_IF;
+        
+    currTime1:=S_ODT( T_NO:= tnNotTurnedOnAlm,
+                            s:= xCmdVentOn AND (NOT xVentIsOn),
+                            tv:= tNotTurnedOnAlmTime,
+                            q:= xAlm   
+                            );
+
+
+END_FUNCTION_BLOCK
+
