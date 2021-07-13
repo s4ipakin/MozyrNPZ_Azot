@@ -19,13 +19,14 @@ END_VAR
 BEGIN
 
     IF rPressureGet > rPressureSet  THEN
-       xOutStart:=TRUE;
-       xOutStop:=FALSE;
+       xOutStart:=xStart;
+       xOutStop:=NOT xStart;
     ELSIF rPressureGet < rPressureSet - rHyster THEN 
        xOutStart:=FALSE;
     END_IF;
     xOutStop:=xStop;
-        
+    xOutStart:= NOT xStop;
+    
                                 
         
     

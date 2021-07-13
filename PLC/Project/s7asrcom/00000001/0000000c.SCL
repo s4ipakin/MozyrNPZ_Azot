@@ -23,7 +23,7 @@ BEGIN
        xOutStart:=FALSE;
     END_IF;
     xOutStop:=xStop;
-        
+    xOutStart:= NOT xStop;     
                                 
         
     
