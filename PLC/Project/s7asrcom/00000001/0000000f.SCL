@@ -53,19 +53,19 @@ END_VAR
 
 BEGIN
     
-     xAllInAlm:= NOT(xAlm_1    OR
-                xAlm_2    OR
-                xAlm_3    OR
-                xAlm_4    OR
-                xAlm_5    OR
-                xAlm_6    OR
-                xAlm_7    OR
-                xAlm_8    OR
-                xAlm_9    OR
-                xAlm_10    OR
-                xAlm_11    OR
-                xAlm_12    OR
-                xAlm_13    OR
+     xAllInAlm:= NOT(xAlm_1    AND
+                xAlm_2    AND
+                xAlm_3    AND
+                xAlm_4    AND
+                xAlm_5    AND
+                xAlm_6    AND
+                xAlm_7    AND
+                xAlm_8    AND
+                xAlm_9    AND
+                xAlm_10    AND
+                xAlm_11    AND
+                xAlm_12    AND
+                xAlm_13    AND
                 xAlm_14);
                 
 

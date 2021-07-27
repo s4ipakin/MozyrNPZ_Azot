@@ -60,6 +60,28 @@ END_FUNCTION
 
 
 
+FUNCTION fnMicron : VOID
+VAR_INPUT
+    bHigh: BYTE;                (* input value*)
+    bLow:BYTE;            (* minimum input value *)
+END_VAR
+VAR_OUTPUT
+    OUT: REAL;            (* output value *)
+END_VAR
+VAR
+    iTemp   : INT;
+END_VAR
+
+
+BEGIN
+    iTemp:= (BYTE_TO_INT(bHigh) * 256) + BYTE_TO_INT(bLow);
+    OUT:= iTemp;
+    OUT:= OUT / 100000;
+END_FUNCTION
+
+
+
+
 FUNCTION fnBytesToRealPressure : VOID
 VAR_INPUT
     bHigh: BYTE;                (* input value*)
