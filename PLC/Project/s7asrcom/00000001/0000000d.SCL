@@ -18,6 +18,7 @@ END_VAR
 
 BEGIN
 
+(*
     IF rPressureGet > rPressureSet  THEN
        xOutStart:=xStart;
        xOutStop:=NOT xStart;
@@ -27,8 +28,9 @@ BEGIN
     xOutStop:=xStop;
     xOutStart:= NOT xStop;
     
-                                
-        
+ *)                               
+    xOutStop:=xStop;
+    xOutStart:=  xStart;  
     
     
     

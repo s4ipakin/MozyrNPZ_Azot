@@ -51,6 +51,14 @@ IF (NOT xStart) AND wState > 0 THEN
     xStartTM_KB2:=FALSE;
     xKZA1_CmdStart:=FALSE; 
     xKZA2_CmdStart:=FALSE;
+    xPO_1_CmdStop:= TRUE;
+    xPO_2_CmdStop:= TRUE;
+    xKB1_CmdStop:=TRUE;
+    xKB2_CmdStop:=TRUE;
+    xKZA1_CmdStop:=TRUE; 
+    xKZA2_CmdStop:=TRUE;
+
+
     wState:=0;
 END_IF;    
     
@@ -60,6 +68,9 @@ END_IF;
            IF xStart THEN
                xPO_1_CmdStart:= TRUE;
                xPO_2_CmdStart:= TRUE;
+               xPO_1_CmdStop:= FALSE;
+               xPO_2_CmdStop:= FALSE;
+
                xStartTM_KB1:=TRUE;
                xStartTM_KB2:=TRUE;
                wState:=1;
@@ -71,6 +82,8 @@ END_IF;
            IF (xTM_KB1_Q OR xTM_KB2_Q) AND xPO_1_On AND xPO_2_On THEN
                xKB1_CmdStart:=xTM_KB1_Q;
                xKB2_CmdStart:=xTM_KB2_Q;
+               xKB1_CmdStop:=NOT xKB1_CmdStart;
+               xKB2_CmdStop:=NOT xKB2_CmdStart;
                wState:=2;
            END_IF;
 
@@ -80,6 +93,8 @@ END_IF;
            IF xTM_KB1_Q AND xTM_KB2_Q THEN
                xKB1_CmdStart:=xTM_KB1_Q;
                xKB2_CmdStart:=xTM_KB2_Q;
+               xKB1_CmdStop:=NOT xKB1_CmdStart;
+               xKB2_CmdStop:=NOT xKB2_CmdStart;
                xStartTM_KB1:=FALSE;
                xStartTM_KB2:=FALSE;
                wState:=3;
@@ -97,6 +112,8 @@ END_IF;
            IF rPressure_PB1 > rPressure_Set AND rPressure_PB2 > rPressure_Set THEN
                xKZA1_CmdStart:=TRUE; 
                xKZA2_CmdStart:=TRUE;
+               xKZA1_CmdStart:=FALSE; 
+               xKZA2_CmdStart:=FALSE;
                wState:=5;
            END_IF;
            

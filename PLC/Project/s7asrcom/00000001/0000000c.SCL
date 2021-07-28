@@ -16,6 +16,7 @@ END_VAR
 
 BEGIN
 
+(*
     IF xStart AND xInterlock THEN
        xOutStart:=TRUE;
        xOutStop:=FALSE;
@@ -24,7 +25,9 @@ BEGIN
     END_IF;
     xOutStop:=xStop;
     xOutStart:= NOT xStop;     
-                                
+  *)
+   xOutStop:=xStop;
+   xOutStart:= xStart;                         
         
     
     

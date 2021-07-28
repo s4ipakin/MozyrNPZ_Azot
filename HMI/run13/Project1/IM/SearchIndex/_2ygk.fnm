@@ -1,0 +1,25 @@
+þÿÿÿØName	BackColorBackFillStyleBorderBackColorBorderColorBorderFlashingColorOffBorderFlashingColorOnBorderFlashingRateCornerStyle	EdgeStyleFillingDirectionFillPatternColorFlashingFlashingColorOffFlashingColorOnFlashingRateLineEndShapeStyleFontFontName	ForeColorHorizontalAlignmentTextAboveUpperLimitColorBackFlashingColorOffBackFlashingColorOnBackFlashingRateBelowLowerLimitColor
+DataFormatFormatPatternModeTextOrientationUnitVerticalAlignment-###SearchableNonTechnicalFieldNamesOfDocument###ParentIds###id###VisulizationRootBrowsableId###ImmediateParentId###ReferenceFieldIds###SearchFilterIdsColorToolTipTextPropertyNameTagValueForPropertyTagPage###UpdatableParentId###ReconstitutionDataIDAssociatedCultureFieldIdAssociatedProjectVersion!AssociatedIndexDataVersionFieldId,AssociatedTechnicalFieldNamesHashCodeFieldId-AssociatedTechnicalFieldContentVersionFieldIdIndexAtomStoreId
+TriggerTag
+AlarmClassDelayTimeUnitDisplaySuppressionMask
+AlarmText1
+AlarmText2HysteresisMode	LimitMode
+LimitValue
+AlarmGroup	GridColor###TargetIdEndStyle
+StartStyleStyleBitPositionUserDefindedDynamicNameIndirectTagConnectionRangeAdaptPicturePictureTransparentColorConnectionTypeFirstConnectedObjectNameLastConnectedObjectLastConnectedObjectNameFirstConnectedObject	FunctionsCaptionText
+ScreenNameScreenScaleMode	TagPrefixWindowStartupPositionBorderBrightColor3DBorderShadeColor3DPictureAlignmentStyleSettingsTextOffCaptionControlDesignModeExportDelimiterExportDirectorynameExportFilenameExportFormatExportFormatGuidExportSelectionGraphDirectionLayer	LineColorPercentageAxisAlignmentPercentageAxisColorRTPersistenceRTPersistenceTypeShowScrollbars	ShowTitleStatusbarBackColorStatusbarFontStatusbarFontColorTimeBaseToolbarAlignmentToolbarBackColorTooltipTextHotkey
+DataSource	FillColor	FillStyleLabel	LineStyleLineTypeLowerLimitColor
+PointColor
+PointStyleRangeDefinition
+SourceTypeTimeAxisTrendWindowUncertainStateColorUpdateCycleUpperLimitColor	ValueAxisCoarseGridColorFineGridColor
+RulerColor
+RulerLayer
+RulerStyle	Alignment	BeginTime
+DateFormatEndTime	RangeType
+TimeFormatTimeRangeBaseScalingTypeColumnScrollbarColumnTitleAlignmentGridLineColorRowScrollbarRowTitleAlignment	RulerTypeSelectedCellColorSelectedCellForeColorSelectedRowColorSelectedRowForeColorSelectedTitleColorSelectedTitleForeColorSelectionColoringSelectionRectSelectionRectColorSelectionTypeSortSequenceSourceControl
+TableColorTableColor2TableForeColorTableForeColor2
+TitleColorTitleDarkShadowColorTitleForeColorTitleGridLineColorTitleLightShadowColor	TitleSort
+TitleStyleSortDirectionAuthorizationSortDirectionInHitlistDefaultSortDefaultSort2DefaultSort2ColumnDisplayOptionsDoubleClickActionHitListDefaultSortHitListRelTimeFactorTypeMessageListTypeBackFlashingEnabledUITypeEditorBitPositionUITypeEditorTagExpressionUITypeEditorStartvalueUITypeEditorEndvalueUITypeEditorExpressionCheckmarkAlignmentText0Visible
+InputValueProcessValueSelectedTextText1Text2Text3Text4	LineWidthTagAddressPanelInfoAddressAccessModeDataTypeHmiDataTypeCoding
+ConnectionPlcNameControllerTagLimitHighConstantLimitLowConstant
+StartValueSubstituteValue	StatusTag
