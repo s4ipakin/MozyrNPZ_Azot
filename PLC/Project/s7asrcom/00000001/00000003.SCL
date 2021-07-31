@@ -98,7 +98,7 @@ END_VAR
 BEGIN
     iTemp:= (BYTE_TO_INT(bHigh) * 256) + BYTE_TO_INT(bLow);
     OUT:= iTemp;
-    OUT:= OUT / 1000;
+    OUT:= OUT / 10000;
 END_FUNCTION
 
 
