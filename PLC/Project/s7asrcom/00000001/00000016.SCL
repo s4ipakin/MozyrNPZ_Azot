@@ -1,0 +1,14 @@
+FUNCTION fnMaskByte : VOID
+VAR_INPUT
+    IN: BYTE;
+END_VAR
+VAR_OUTPUT
+    OUT: BYTE;            (* output value *)
+END_VAR
+VAR
+END_VAR
+
+
+BEGIN
+    OUT:= IN XOR B#16#FF;
+END_FUNCTION

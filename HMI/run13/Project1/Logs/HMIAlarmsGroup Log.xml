@@ -1,0 +1,7 @@
+<?xml version="1.0" standalone="no"?>
+<?xml-stylesheet type='text/xsl' href='MassDataHandlerLogFile.xsl'?>
+<LogFile titleName="HMIAlarmsGroup Log.xml" projectName="D:\PROJECTS\Мозырь\HMIAlarmsGroup.xlsx" typeText="Type" messageText="Message" timeText="Time">
+  <LogEntry type="Information" dateTime="12:34:19 PM">
+    <Message>Import finished: 0 discrete alarms; 532 analog alarms</Message>
+  </LogEntry>
+</LogFile>
