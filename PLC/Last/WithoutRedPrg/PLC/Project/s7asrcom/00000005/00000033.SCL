@@ -1,0 +1,132 @@
+FUNCTION fnModbusCheckConnecrions : VOID
+VAR_INPUT
+        
+    bBO    : BYTE;
+    bGA1_1    : BYTE;
+    bGA1_2    : BYTE;
+    bGA2_1    : BYTE;
+    bGA2_2    : BYTE;
+    bKB1_1    : BYTE;
+    bKB1_2    : BYTE;
+    bKB2    : BYTE;
+    bKD    : BYTE;
+    bPO1_1    : BYTE;
+    bPO1_2    : BYTE;
+    bPO2    : BYTE;
+       
+    
+
+END_VAR
+
+VAR_OUTPUT
+   xBO    : BOOL;
+    xGA1_1    : BOOL;
+    xGA1_2    : BOOL;
+    xGA2_1    : BOOL;
+    xGA2_2    : BOOL;
+    xKB1_1    : BOOL;
+    xKB1_2    : BOOL;
+    xKB2    : BOOL;
+    xKD    : BOOL;
+    xPO1_1    : BOOL;
+    xPO1_2    : BOOL;
+    xPO2    : BOOL;                    
+END_VAR
+VAR
+        
+    iCheck: INT;
+
+
+END_VAR
+
+BEGIN
+    
+    iCheck:= BYTE_TO_INT(bBO);
+    IF iCheck > 0 THEN
+        xBO:= TRUE;
+    ELSE
+        xBO:= FALSE;
+    END_IF;
+
+    iCheck:= BYTE_TO_INT(bGA1_1);
+    IF iCheck > 0 THEN
+        xGA1_1:= TRUE;
+    ELSE
+        xGA1_1:= FALSE;
+    END_IF;
+    
+    iCheck:= BYTE_TO_INT(bGA1_2);
+    IF iCheck > 0 THEN
+        xGA1_2:= TRUE;
+    ELSE
+        xGA1_2:= FALSE;
+    END_IF;
+
+    iCheck:= BYTE_TO_INT(bGA2_1);
+    IF iCheck > 0 THEN
+        xGA2_1:= TRUE;
+    ELSE
+        xGA2_1:= FALSE;
+    END_IF;
+    
+    iCheck:= BYTE_TO_INT(bGA2_2);
+    IF iCheck > 0 THEN
+        xGA2_2:= TRUE;
+    ELSE
+        xGA2_2:= FALSE;
+    END_IF;
+    
+    iCheck:= BYTE_TO_INT(bKB1_1);
+    IF iCheck > 0 THEN
+        xKB1_1:= TRUE;
+    ELSE
+        xKB1_1:= FALSE;
+    END_IF;
+
+    iCheck:= BYTE_TO_INT(bKB1_2);
+    IF iCheck > 0 THEN
+        xKB1_2:= TRUE;
+    ELSE
+        xKB1_2:= FALSE;
+    END_IF;
+
+    iCheck:= BYTE_TO_INT(bKB2);
+    IF iCheck > 0 THEN
+        xKB2:= TRUE;
+    ELSE
+        xKB2:= FALSE;
+    END_IF;
+
+    iCheck:= BYTE_TO_INT(bKD);
+    IF iCheck > 0 THEN
+        xKD:= TRUE;
+    ELSE
+        xKD:= FALSE;
+    END_IF;
+
+    iCheck:= BYTE_TO_INT(bPO1_1);
+    IF iCheck > 0 THEN
+        xPO1_1:= TRUE;
+    ELSE
+        xPO1_1:= FALSE;
+    END_IF;
+
+    iCheck:= BYTE_TO_INT(bPO1_2);
+    IF iCheck > 0 THEN
+        xPO1_2:= TRUE;
+    ELSE
+        xPO1_2:= FALSE;
+    END_IF;
+
+    iCheck:= BYTE_TO_INT(bPO2);
+    IF iCheck > 0 THEN
+        xPO2:= TRUE;
+    ELSE
+        xPO2:= FALSE;
+    END_IF;
+
+
+END_FUNCTION
+
+
+

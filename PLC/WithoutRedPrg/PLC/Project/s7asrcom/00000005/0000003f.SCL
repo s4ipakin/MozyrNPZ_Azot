@@ -1,0 +1,36 @@
+FUNCTION_BLOCK DERIVATIVE
+VAR_INPUT
+    IN:REAL;                        (* input variable *)
+    TM:INT;                    (* time since last call in msec *)
+    RESET:BOOL;                    (* reset: set OUT to zero *)
+END_VAR
+VAR_OUTPUT
+    OUT:REAL;                    (* derivative *)
+END_VAR
+VAR
+    X3,X2,X1:REAL;
+    T_2,T_1:INT;
+    INIT:BOOL:=TRUE;
+END_VAR
+
+
+BEGIN
+
+IF INIT OR RESET THEN
+    X1:=IN;
+    X2:=IN;
+    X3:=IN;
+    OUT:=0;
+    INIT:=FALSE;
+ELSE
+    IF TM>0 THEN
+        OUT:=(3*(IN-X3)+X1-X2)/((3*T_2+4*T_1+3*TM))*1000;
+        X3:=X2;
+        X2:=X1;
+        X1:=IN;
+        T_2:=T_1;
+        T_1:=TM;
+    END_IF;
+END_IF;
+
+END_FUNCTION_BLOCK

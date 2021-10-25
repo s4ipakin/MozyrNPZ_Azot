@@ -1,0 +1,39 @@
+FUNCTION_BLOCK fbTON_New
+VAR_INPUT
+    xStart: BOOL;
+        
+    tnTimer: TIMER;
+    sSetTime: S5TIME;
+    tNotTurnedOnAlmTime: S5TIME;
+
+
+END_VAR
+VAR_IN_OUT
+END_VAR
+VAR_OUTPUT
+    xQ:BOOL; 
+                         
+END_VAR
+VAR
+        
+    currTime: S5TIME;
+    
+
+END_VAR
+
+BEGIN
+    
+                     
+
+
+     currTime:=S_ODT( T_NO:= tnTimer,
+                            s:= xStart,
+                            tv:= sSetTime,
+                            q:= xQ   
+                            );
+                            
+    
+
+END_FUNCTION_BLOCK
+
+

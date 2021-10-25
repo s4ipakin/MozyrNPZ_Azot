@@ -1,0 +1,234 @@
+FUNCTION_BLOCK fbProcess_1
+VAR_INPUT
+    xPO_1_On:BOOL;                        (* input variable *)
+    xPO_2_On: BOOL;
+    xKB1_On: BOOL;
+    xKB2_On:    BOOL;
+    xKZA1_On: BOOL;
+    xKZA2_On:    BOOL;
+    rPressure_PB1: REAL;
+    rPressure_PB2: REAL;
+    rPressure_Set: REAL;
+    xTM_KB1_Q: BOOL;
+    xTM_KB2_Q: BOOL;
+    xTM_StopDelay_Q: BOOL;
+
+END_VAR
+VAR_IN_OUT
+    xStart:BOOL;
+    xPO_1_CmdStart:BOOL;                        
+    xPO_2_CmdStart: BOOL;
+    xKB1_CmdStart:BOOL;                        
+    xKB2_CmdStart: BOOL;
+    xKZA1_CmdStart:BOOL;                        
+    xKZA2_CmdStart: BOOL;
+    xPO_1_CmdStop:BOOL;                        
+    xPO_2_CmdStop: BOOL;
+    xKB1_CmdStop:BOOL;                        
+    xKB2_CmdStop: BOOL;
+    xKZA1_CmdStop:BOOL;                        
+    xKZA2_CmdStop: BOOL;
+
+
+
+END_VAR
+VAR_OUTPUT
+    wState  : INT;
+    xStartTM_KB1: BOOL;
+    xStartTM_KB2: BOOL; 
+    xStartTM_StopDelay: BOOL;                    
+END_VAR
+VAR
+    
+END_VAR
+
+BEGIN
+
+    
+    
+    CASE wState OF
+        0 :
+           IF xStart THEN
+               xPO_1_CmdStart:= TRUE;
+               xPO_2_CmdStart:= TRUE;
+               xPO_1_CmdStop:= FALSE;
+               xPO_2_CmdStop:= FALSE;
+               xStartTM_StopDelay:=FALSE;
+               xStartTM_KB1:=TRUE;
+               //xStartTM_KB2:=TRUE;
+               wState:=1;
+           END_IF;
+               
+        1 :
+           
+           
+           xPO_1_CmdStart:= TRUE;
+           xPO_2_CmdStart:= TRUE;
+           xPO_1_CmdStop:= FALSE;
+           xPO_2_CmdStop:= FALSE;
+           xStartTM_KB1:=TRUE;
+           //xStartTM_KB2:=TRUE;
+           IF NOT xStart THEN
+               wState:=7;
+           END_IF;
+           IF xTM_KB1_Q AND xPO_1_On AND xPO_2_On THEN
+               xKB1_CmdStart:=xTM_KB1_Q;
+               xKB2_CmdStart:=xTM_KB1_Q;
+               xKB1_CmdStop:=NOT xKB1_CmdStart;
+               xKB2_CmdStop:=NOT xKB2_CmdStart;
+               wState:=2;
+           END_IF;
+
+        
+        2 :
+        
+           xPO_1_CmdStart:= TRUE;
+           xPO_2_CmdStart:= TRUE;
+           xPO_1_CmdStop:= FALSE;
+           xPO_2_CmdStop:= FALSE;
+           
+           IF NOT xStart THEN
+               wState:=7;
+           END_IF;
+           
+           IF xTM_KB1_Q THEN
+               xKB1_CmdStart:=xTM_KB1_Q;
+               xKB2_CmdStart:=xTM_KB1_Q;
+               xKB1_CmdStop:=NOT xKB1_CmdStart;
+               xKB2_CmdStop:=NOT xKB2_CmdStart;
+               xStartTM_KB1:=FALSE;
+               xStartTM_KB2:=FALSE;
+               wState:=3;
+           END_IF;
+           
+        3 :
+        
+           xPO_1_CmdStart:= TRUE;
+           xPO_2_CmdStart:= TRUE;
+           xPO_1_CmdStop:= FALSE;
+           xPO_2_CmdStop:= FALSE; 
+           xKB1_CmdStart:=TRUE;
+           xKB2_CmdStart:=TRUE;
+           xKB1_CmdStop:=FALSE;
+           xKB2_CmdStop:=FALSE;
+
+           IF NOT xStart THEN
+               wState:=7;
+           END_IF;
+        
+           IF xKB1_On AND xKB2_On THEN
+                wState:=4;
+           END_IF;
+           
+         4 :
+         
+           xPO_1_CmdStart:= TRUE;
+           xPO_2_CmdStart:= TRUE;
+           xPO_1_CmdStop:= FALSE;
+           xPO_2_CmdStop:= FALSE; 
+           xKB1_CmdStart:=TRUE;
+           xKB2_CmdStart:=TRUE;
+           xKB1_CmdStop:=FALSE;
+           xKB2_CmdStop:=FALSE;
+
+           IF NOT xStart THEN
+               wState:=7;
+           END_IF;
+           
+           IF rPressure_PB1 > rPressure_Set AND rPressure_PB2 > rPressure_Set THEN
+               xKZA1_CmdStart:=TRUE; 
+               //xKZA2_CmdStart:=TRUE;
+               xKZA1_CmdStop:=FALSE;
+               xStartTM_KB2:=TRUE; 
+               //xKZA2_CmdStop:=FALSE;
+               wState:=5;
+           END_IF;
+           
+           
+                 
+         5 :
+         
+           xPO_1_CmdStart:= TRUE;
+           xPO_2_CmdStart:= TRUE;
+           xPO_1_CmdStop:= FALSE;
+           xPO_2_CmdStop:= FALSE; 
+           xKB1_CmdStart:=TRUE;
+           xKB2_CmdStart:=TRUE;
+           xKB1_CmdStop:=FALSE;
+           xKB2_CmdStop:=FALSE;
+
+         
+           xKZA1_CmdStart:=TRUE; 
+           xKZA2_CmdStart:=xTM_KB2_Q;
+           xKZA1_CmdStop:=FALSE; 
+           xKZA2_CmdStop:=NOT xKZA2_CmdStart;
+           
+           IF NOT xStart THEN
+               wState:=8;
+           END_IF;
+           IF xKZA1_On AND xKZA2_On THEN
+                xStartTM_KB2:=FALSE;
+                wState:=6;
+           END_IF; 
+           
+           
+         6:
+           
+           xPO_1_CmdStart:= TRUE;
+           xPO_2_CmdStart:= TRUE;
+           xPO_1_CmdStop:= FALSE;
+           xPO_2_CmdStop:= FALSE; 
+           xKB1_CmdStart:=TRUE;
+           xKB2_CmdStart:=TRUE;
+           xKB1_CmdStop:=FALSE;
+           xKB2_CmdStop:=FALSE;
+           IF NOT xStart THEN
+               wState:=8;
+           END_IF;
+           
+         7:
+         
+           xPO_1_CmdStart:= FALSE;
+           xPO_2_CmdStart:= FALSE;
+           xPO_1_CmdStop:= TRUE;
+           xPO_2_CmdStop:= TRUE; 
+           xKB1_CmdStart:=FALSE;
+           xKB2_CmdStart:=FALSE;
+           xKB1_CmdStop:=TRUE;
+           xKB2_CmdStop:=TRUE;
+           xKZA1_CmdStart:=FALSE; 
+           xKZA2_CmdStart:=FALSE;
+           xKZA1_CmdStop:=TRUE; 
+           xKZA2_CmdStop:=TRUE;
+           xStartTM_KB1:=FALSE;
+           xStartTM_KB2:=FALSE;
+           xStartTM_StopDelay:=FALSE;
+
+           wState:=0;
+           
+          
+         8:
+         
+         
+           xKZA1_CmdStart:=FALSE; 
+           xKZA2_CmdStart:=FALSE;
+           xKZA1_CmdStop:=TRUE; 
+           xKZA2_CmdStop:=TRUE;
+           xStartTM_KB1:=FALSE;
+           xStartTM_KB2:=FALSE;
+           xStartTM_StopDelay:=FALSE;
+           wState:=9;
+           
+         9:
+           
+           xStartTM_StopDelay:=TRUE;
+           IF xTM_StopDelay_Q THEN
+                xStartTM_StopDelay:=FALSE;
+                wState:=7;
+           END_IF;
+            
+    END_CASE;
+
+    
+        
+END_FUNCTION_BLOCK

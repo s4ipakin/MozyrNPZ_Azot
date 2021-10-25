@@ -1,0 +1,31 @@
+FUNCTION_BLOCK fbPO
+VAR_INPUT
+    xPO_Working:BOOL;                        
+    tnWotkingTimer: TIMER;
+    tSetWorkingTime: S5TIME;
+END_VAR
+VAR_IN_OUT
+END_VAR
+VAR_OUTPUT
+    xTimeElapsed:BOOL; 
+END_VAR
+VAR
+    currTime: S5TIME;
+END_VAR
+
+BEGIN
+
+    
+
+    currTime:=S_ODT( T_NO:= tnWotkingTimer,
+                            s:= xPO_Working,
+                            tv:= tSetWorkingTime,
+                            q:= xTimeElapsed   
+                            );
+                            
+        
+    
+    
+    
+END_FUNCTION_BLOCK
+

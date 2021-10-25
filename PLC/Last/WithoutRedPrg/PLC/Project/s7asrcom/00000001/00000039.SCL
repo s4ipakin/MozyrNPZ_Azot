@@ -1,0 +1,66 @@
+FUNCTION_BLOCK fbStopDevices
+VAR_INPUT
+    xPO_1_On:BOOL;                        (* input variable *)
+    xPO_2_On: BOOL;
+    xKB1_On: BOOL;
+    xKB2_On:    BOOL;
+    xKZA1_On: BOOL;
+    xKZA2_On:    BOOL;
+    rPressure_PB1: REAL;
+    rPressure_PB2: REAL;
+    rPressure_Set: REAL;
+    xTM_KB1_Q: BOOL;
+    xTM_KB2_Q: BOOL;
+
+END_VAR
+VAR_IN_OUT
+    xStart:BOOL;
+    xPO_1_CmdStart:BOOL;                        
+    xPO_2_CmdStart: BOOL;
+    xKB1_CmdStart:BOOL;                        
+    xKB2_CmdStart: BOOL;
+    
+    xPO_1_CmdStop:BOOL;                        
+    xPO_2_CmdStop: BOOL;
+    xKB1_CmdStop:BOOL;                        
+    xKB2_CmdStop: BOOL;
+    
+
+
+END_VAR
+VAR_OUTPUT
+    wState  : INT;
+    xStartTM_KB1: BOOL;
+    xStartTM_KB2: BOOL;                     
+END_VAR
+VAR
+    xStartOld: BOOL;
+END_VAR
+
+BEGIN
+
+IF xStart THEN
+    xStartOld:= TRUE;
+    xStartTM_KB1:= FALSE;
+END_IF;
+
+IF (NOT xStart) AND xStartOld THEN
+    xStartTM_KB1:= TRUE;   
+    xStartOld:= FALSE;
+END_IF;
+
+IF xTM_KB1_Q THEN
+    xStartTM_KB1:= FALSE;
+    xPO_1_CmdStop:= TRUE;
+    xPO_2_CmdStop:= TRUE;
+    xKB1_CmdStop:=TRUE;
+    xKB2_CmdStop:=TRUE;
+    xPO_1_CmdStart:= FALSE;
+    xPO_2_CmdStart:= FALSE;
+    xKB1_CmdStart:=FALSE;
+    xKB2_CmdStart:=FALSE;
+END_IF;
+
+        
+END_FUNCTION_BLOCK
+

@@ -1,0 +1,15 @@
+FUNCTION ByteToByte : VOID
+VAR_INPUT
+    bIn: BYTE;                (* input value*)
+END_VAR
+VAR_OUTPUT
+    OUT: BYTE;            (* output value *)
+END_VAR
+VAR
+END_VAR
+
+
+BEGIN
+    OUT:=bIn;
+
+END_FUNCTION

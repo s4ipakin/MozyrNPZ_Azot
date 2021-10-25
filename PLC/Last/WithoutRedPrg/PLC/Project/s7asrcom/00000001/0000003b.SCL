@@ -1,0 +1,25 @@
+FUNCTION fnMaskByte : VOID
+VAR_INPUT
+    IN: BYTE;
+END_VAR
+VAR_OUTPUT
+    OUT: BYTE;            (* output value *)
+END_VAR
+VAR
+    wCheck: WORD;
+    xCheck: BOOL;
+END_VAR
+
+
+BEGIN
+    wCheck:= BYTE_TO_WORD(IN);
+   // wCheck:= iCheck AND 1;
+    //xCheck:= (iCheck AND 1) > 1;
+    IF ((wCheck AND w#16#1) <> 0) THEN
+        OUT:= B#16#00;
+    ELSE 
+        OUT:= B#16#01;
+    END_IF;
+    
+    //OUT:= IN XOR B#16#FF;
+END_FUNCTION

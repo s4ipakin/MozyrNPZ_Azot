@@ -1,0 +1,37 @@
+<?xml version="1.0" standalone="no"?>
+<?xml-stylesheet type='text/xsl' href='MassDataHandlerLogFile.xsl'?>
+<LogFile titleName="HMIAlarms Log_3.xml" projectName="C:\Users\Dmitry\Desktop\HMIAlarms.xlsx" typeText="Type" messageText="Message" timeText="Time">
+  <LogEntry type="Warning" dateTime="8:45:56 AM">
+    <Message>The alarm with ID '413' will be ignored during the import. This ID is already in use by HmiAnalogAlarm. (Column 'ID', row 46).</Message>
+  </LogEntry>
+  <LogEntry type="Warning" dateTime="8:45:56 AM">
+    <Message>The alarm with ID '267' will be ignored during the import. This ID is already in use by HmiAnalogAlarm. (Column 'ID', row 47).</Message>
+  </LogEntry>
+  <LogEntry type="Warning" dateTime="8:45:56 AM">
+    <Message>The alarm with ID '121' will be ignored during the import. This ID is already in use by HmiAnalogAlarm. (Column 'ID', row 48).</Message>
+  </LogEntry>
+  <LogEntry type="Warning" dateTime="8:45:56 AM">
+    <Message>Invalid alarm ID -25 in column 'ID', row 49. The entire row is ignored during import.</Message>
+  </LogEntry>
+  <LogEntry type="Warning" dateTime="8:45:56 AM">
+    <Message>Invalid alarm ID -171 in column 'ID', row 50. The entire row is ignored during import.</Message>
+  </LogEntry>
+  <LogEntry type="Warning" dateTime="8:45:56 AM">
+    <Message>Invalid alarm ID -317 in column 'ID', row 51. The entire row is ignored during import.</Message>
+  </LogEntry>
+  <LogEntry type="Warning" dateTime="8:45:56 AM">
+    <Message>Invalid alarm ID -463 in column 'ID', row 52. The entire row is ignored during import.</Message>
+  </LogEntry>
+  <LogEntry type="Warning" dateTime="8:45:56 AM">
+    <Message>Invalid alarm ID -609 in column 'ID', row 53. The entire row is ignored during import.</Message>
+  </LogEntry>
+  <LogEntry type="Warning" dateTime="8:45:56 AM">
+    <Message>Invalid alarm ID -755 in column 'ID', row 54. The entire row is ignored during import.</Message>
+  </LogEntry>
+  <LogEntry type="Warning" dateTime="8:45:56 AM">
+    <Message>Invalid alarm ID -901 in column 'ID', row 55. The entire row is ignored during import.</Message>
+  </LogEntry>
+  <LogEntry type="Information" dateTime="8:45:56 AM">
+    <Message>Import finished: 44 discrete alarms; 0 analog alarms</Message>
+  </LogEntry>
+</LogFile>

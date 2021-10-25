@@ -1,0 +1,107 @@
+FUNCTION_BLOCK fbN_O2_Block_2
+VAR_INPUT
+    rO2_PurityGet:REAL;                        
+    rO2_Purity_High:REAL; 
+    rO2_Purity_Low:REAL;                   
+    xEUV1_Lockal: BOOL; 
+    xEUV2_Lockal: BOOL;
+    xEUV3_Lockal: BOOL; 
+    xEUV2_SnsOpn: BOOL;
+    xEUV3_SnsOpn: BOOL; 
+    tnClsAlm: TIMER;
+    tPulseWidth: S5TIME;
+                  
+END_VAR
+VAR_IN_OUT
+    xOn:BOOL;
+    xOff:BOOL;
+    xEUV1_Opn: BOOL; 
+    xEUV2_Opn: BOOL;
+    xEUV3_Opn: BOOL;
+    xEUV1_Cls: BOOL; 
+    xEUV2_Cls: BOOL;
+    xEUV3_Cls: BOOL; 
+END_VAR
+VAR_OUTPUT
+    iState: INT;
+END_VAR
+VAR
+    xAlmOpnTON_Q: BOOL;
+    currTime: S5TIME;
+END_VAR
+
+
+BEGIN
+    
+    IF xEUV2_Lockal OR xEUV3_Lockal THEN
+        xOn:= FALSE;
+        xOff:= TRUE;
+        iState:= 0;
+    END_IF;
+    IF xOff THEN
+        iState:= 0;
+        xOn:= FALSE;
+    END_IF;
+
+    
+    CASE iState OF
+        
+        0:
+            xEUV3_Opn:= FALSE;
+            xEUV2_Opn:= FALSE;
+            xEUV1_Opn:= FALSE;
+            xEUV3_Cls:= FALSE;
+            xEUV2_Cls:= FALSE;
+            xEUV1_Cls:= FALSE;
+
+            IF xOn THEN
+                iState:= 1;
+                xOff:= FALSE;
+            END_IF;
+            
+        1:
+            
+            IF rO2_PurityGet > rO2_Purity_High THEN
+                xEUV2_Opn:= TRUE;                    
+                xEUV3_Cls:= TRUE;
+                iState:= 3;
+            END_IF;
+            
+        2:
+        
+            IF xEUV2_SnsOpn THEN
+                xEUV3_Cls:= TRUE;
+                iState:= 3;
+            END_IF;
+            
+            
+            
+        3:
+            currTime:=S_ODT( T_NO:= tnClsAlm,
+                            s:= rO2_PurityGet < rO2_Purity_Low ,
+                            tv:= tPulseWidth,
+                            q:= xAlmOpnTON_Q   
+                            );
+            
+                    
+            IF xAlmOpnTON_Q THEN
+                xEUV2_Cls:= TRUE;                    
+                xEUV3_Opn:= TRUE;
+                iState:= 1;
+            END_IF; 
+            
+         4:
+         
+            IF xEUV3_SnsOpn THEN
+                xEUV2_Cls:= TRUE;
+                iState:= 1;
+            END_IF;
+                        
+    END_CASE;
+    
+     
+END_FUNCTION_BLOCK
+    
+    
+
+

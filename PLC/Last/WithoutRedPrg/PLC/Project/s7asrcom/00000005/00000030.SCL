@@ -1,0 +1,40 @@
+FUNCTION_BLOCK fbKZA
+VAR_INPUT
+    rPressureSet:REAL;
+    rPressureGet:REAL;
+    rHyster: REAL:=0.2;                            
+END_VAR
+VAR_IN_OUT
+    xStart: BOOL;
+    xStop: BOOL;
+END_VAR
+VAR_OUTPUT
+    xOutStart:BOOL; 
+    xOutStop:BOOL;
+END_VAR
+VAR
+    
+END_VAR
+
+BEGIN
+
+(*
+    IF rPressureGet > rPressureSet  THEN
+       xOutStart:=xStart;
+       xOutStop:=NOT xStart;
+    ELSIF rPressureGet < rPressureSet - rHyster THEN 
+       xOutStart:=FALSE;
+    END_IF;
+    xOutStop:=xStop;
+    xOutStart:= NOT xStop;
+    
+ *)                               
+    xOutStop:=xStop;
+    xOutStart:=  xStart;  
+    
+    
+    
+END_FUNCTION_BLOCK
+
+
+

@@ -1,0 +1,67 @@
+<?xml version="1.0" standalone="no"?>
+<?xml-stylesheet type='text/xsl' href='MassDataHandlerLogFile.xsl'?>
+<LogFile titleName="HMIAlarmsZ Log.xml" projectName="D:\PROJECTS\Мозырь\HMIAlarmsZ.xlsx" typeText="Type" messageText="Message" timeText="Time">
+  <LogEntry type="Warning" dateTime="5:04:19 PM">
+    <Message>The alarm with ID '1' will be ignored during the import. This ID is already in use by HmiDiscreteAlarm. (Worksheet 'AnalogAlarms', column 'ID', row 2).  </Message>
+  </LogEntry>
+  <LogEntry type="Warning" dateTime="5:04:19 PM">
+    <Message>The alarm with ID '2' will be ignored during the import. This ID is already in use by HmiDiscreteAlarm. (Worksheet 'AnalogAlarms', column 'ID', row 3).  </Message>
+  </LogEntry>
+  <LogEntry type="Warning" dateTime="5:04:19 PM">
+    <Message>The alarm with ID '3' will be ignored during the import. This ID is already in use by HmiDiscreteAlarm. (Worksheet 'AnalogAlarms', column 'ID', row 4).  </Message>
+  </LogEntry>
+  <LogEntry type="Warning" dateTime="5:04:19 PM">
+    <Message>The alarm with ID '4' will be ignored during the import. This ID is already in use by HmiDiscreteAlarm. (Worksheet 'AnalogAlarms', column 'ID', row 5).  </Message>
+  </LogEntry>
+  <LogEntry type="Warning" dateTime="5:04:19 PM">
+    <Message>The alarm with ID '5' will be ignored during the import. This ID is already in use by HmiDiscreteAlarm. (Worksheet 'AnalogAlarms', column 'ID', row 6).  </Message>
+  </LogEntry>
+  <LogEntry type="Warning" dateTime="5:04:19 PM">
+    <Message>The alarm with ID '6' will be ignored during the import. This ID is already in use by HmiDiscreteAlarm. (Worksheet 'AnalogAlarms', column 'ID', row 7).  </Message>
+  </LogEntry>
+  <LogEntry type="Warning" dateTime="5:04:19 PM">
+    <Message>The alarm with ID '7' will be ignored during the import. This ID is already in use by HmiDiscreteAlarm. (Worksheet 'AnalogAlarms', column 'ID', row 8).  </Message>
+  </LogEntry>
+  <LogEntry type="Warning" dateTime="5:04:19 PM">
+    <Message>The alarm with ID '8' will be ignored during the import. This ID is already in use by HmiDiscreteAlarm. (Worksheet 'AnalogAlarms', column 'ID', row 9).  </Message>
+  </LogEntry>
+  <LogEntry type="Warning" dateTime="5:04:19 PM">
+    <Message>The alarm with ID '9' will be ignored during the import. This ID is already in use by HmiDiscreteAlarm. (Worksheet 'AnalogAlarms', column 'ID', row 10).  </Message>
+  </LogEntry>
+  <LogEntry type="Warning" dateTime="5:04:19 PM">
+    <Message>The alarm with ID '10' will be ignored during the import. This ID is already in use by HmiDiscreteAlarm. (Worksheet 'AnalogAlarms', column 'ID', row 11).  </Message>
+  </LogEntry>
+  <LogEntry type="Warning" dateTime="5:04:19 PM">
+    <Message>Alarm ID 1 does not exist (worksheet 'Limits', column 'Alarm ID', row 1). The entire row is ignored during import.</Message>
+  </LogEntry>
+  <LogEntry type="Warning" dateTime="5:04:19 PM">
+    <Message>Alarm ID 2 does not exist (worksheet 'Limits', column 'Alarm ID', row 2). The entire row is ignored during import.</Message>
+  </LogEntry>
+  <LogEntry type="Warning" dateTime="5:04:19 PM">
+    <Message>Alarm ID 3 does not exist (worksheet 'Limits', column 'Alarm ID', row 3). The entire row is ignored during import.</Message>
+  </LogEntry>
+  <LogEntry type="Warning" dateTime="5:04:19 PM">
+    <Message>Alarm ID 4 does not exist (worksheet 'Limits', column 'Alarm ID', row 4). The entire row is ignored during import.</Message>
+  </LogEntry>
+  <LogEntry type="Warning" dateTime="5:04:19 PM">
+    <Message>Alarm ID 5 does not exist (worksheet 'Limits', column 'Alarm ID', row 5). The entire row is ignored during import.</Message>
+  </LogEntry>
+  <LogEntry type="Warning" dateTime="5:04:19 PM">
+    <Message>Alarm ID 6 does not exist (worksheet 'Limits', column 'Alarm ID', row 6). The entire row is ignored during import.</Message>
+  </LogEntry>
+  <LogEntry type="Warning" dateTime="5:04:19 PM">
+    <Message>Alarm ID 7 does not exist (worksheet 'Limits', column 'Alarm ID', row 7). The entire row is ignored during import.</Message>
+  </LogEntry>
+  <LogEntry type="Warning" dateTime="5:04:19 PM">
+    <Message>Alarm ID 8 does not exist (worksheet 'Limits', column 'Alarm ID', row 8). The entire row is ignored during import.</Message>
+  </LogEntry>
+  <LogEntry type="Warning" dateTime="5:04:19 PM">
+    <Message>Alarm ID 9 does not exist (worksheet 'Limits', column 'Alarm ID', row 9). The entire row is ignored during import.</Message>
+  </LogEntry>
+  <LogEntry type="Warning" dateTime="5:04:19 PM">
+    <Message>Alarm ID 10 does not exist (worksheet 'Limits', column 'Alarm ID', row 10). The entire row is ignored during import.</Message>
+  </LogEntry>
+  <LogEntry type="Information" dateTime="5:04:19 PM">
+    <Message>Import finished: 0 discrete alarms; 144 analog alarms</Message>
+  </LogEntry>
+</LogFile>

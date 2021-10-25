@@ -1,0 +1,69 @@
+FUNCTION_BLOCK DO_Valve
+VAR_INPUT
+    xCmdStop:BOOL;                        (* input variable *)
+    xSnsOpn: BOOL;
+    xSnsCls: BOOL;
+    xAlm:    BOOL;
+END_VAR
+VAR_IN_OUT
+    xCmdOpn:BOOL;
+    xCmdCls:BOOL;
+END_VAR
+VAR_OUTPUT
+    xDO_Opn:BOOL; 
+    xDO_Cls:BOOL;
+    xDO_Stop:BOOL;                     
+END_VAR
+VAR
+    rtOn: BOOL;
+    rtOff: BOOL;
+    ftOn: BOOL;
+    ftOff: BOOL;
+    
+    OpnOld: BOOL;
+    ClsOld: BOOL;
+END_VAR
+
+BEGIN
+    
+    
+    IF xCmdOpn AND (NOT OpnOld) THEN
+        xDO_Opn:=TRUE;
+        xDO_Cls:=FALSE;
+        xCmdCls:=FALSE;
+    ELSIF xCmdcLS AND (NOT ClsOld) THEN
+        xDO_Opn:=FALSE;
+        xDO_Cls:=TRUE;
+        xCmdOpn:=FALSE;    
+    END_IF;
+    
+    IF (NOT xCmdOpn) AND OpnOld THEN
+        xDO_Opn:=FALSE;
+    END_IF;
+    IF (NOT xCmdCls) AND ClsOld THEN
+        xDO_Cls:=FALSE;
+    END_IF;
+    
+    IF xSnsOpn THEN
+        xDO_Opn:=FALSE;
+        xCmdOpn:=FALSE;
+    END_IF;
+    IF xSnsCls THEN
+        xDO_Cls:=FALSE;
+        xCmdCls:=FALSE;
+    END_IF;  
+
+    xDO_Stop:=xCmdStop;
+    
+    IF xCmdStop THEN
+        xDO_Opn:=FALSE;
+        xDO_Cls:=FALSE;
+        xCmdCls:=FALSE;
+        xCmdOpn:=FALSE;
+    END_IF;
+    
+
+    OpnOld:=xCmdOpn;
+    ClsOld:=xCmdCls;
+    
+END_FUNCTION_BLOCK

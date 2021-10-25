@@ -1,0 +1,60 @@
+FUNCTION_BLOCK fbStartStopProc
+VAR_INPUT
+    iProcessType:INT;                        
+    xStartAll: BOOL;
+    
+END_VAR
+VAR_IN_OUT
+    xStartProc1: BOOL;
+    xStartProc2: BOOL;
+END_VAR
+VAR_OUTPUT
+     
+END_VAR
+VAR
+    iStep: INT;
+END_VAR
+
+BEGIN
+
+    
+
+    
+    CASE iStep OF
+        0 :
+            IF xStartAll THEN
+                iStep:=1;
+            END_IF;
+            
+        1 :
+            
+            IF iProcessType = 1 THEN
+                xStartProc1:= TRUE;
+            ELSIF iProcessType = 2 THEN
+                xStartProc2:= TRUE;
+            ELSIF iProcessType = 2 THEN
+                xStartProc2:= TRUE;
+                xStartProc1:= TRUE;
+            END_IF;
+            iStep:=2;
+            
+            
+         
+        2 :
+        
+            IF NOT xStartAll THEN
+                xStartProc1:= FALSE;
+                xStartProc2:= FALSE;
+                iStep:=0;
+            END_IF;
+                            
+            
+ END_CASE;
+                            
+        
+    
+    
+    
+END_FUNCTION_BLOCK
+
+
